@@ -239,6 +239,7 @@ exec_always --no-startup-id picom --experimental-backends -CGb
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 # assign programs to diff workspace
+# make addition
 assign [class="discord"] $ws3
 assign [class="brave-browser"] $ws2
 
