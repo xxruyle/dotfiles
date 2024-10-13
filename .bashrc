@@ -115,7 +115,7 @@ fi
 export TERMINAL=kitty
 
 #prompt 
-export PS1="\n\w\n\[\e[1;32m\]❯ \[\e[0m\]"
+export PS1="\w\n\[\e[1;32m\]❯ \[\e[0m\]"
 
 
 
@@ -124,6 +124,7 @@ xset r rate 275 30
 
 #alias
 # alias ls="ls -lah"
+alias neofetch="neofetch --ascii_distro Debian_small"
 alias cdd="cd ~/dev" 
 alias cdconf="cd ~/.config"
 alias confnotes="nvim ~/dev/notes/config-notes.md"
