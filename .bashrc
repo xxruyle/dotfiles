@@ -123,6 +123,7 @@ export PS1="\n\w\n\[\e[1;32m\]❯ \[\e[0m\]"
 xset r rate 275 30
 
 #alias
+# alias ls="ls -lah"
 alias cdd="cd ~/dev" 
 alias cdconf="cd ~/.config"
 alias confnotes="nvim ~/dev/notes/config-notes.md"
