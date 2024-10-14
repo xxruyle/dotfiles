@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+playerctl --player=$((cat ~/dotfiles/.config/.playerctl-priority 2>/dev/null; echo; playerctl -l)|awk '!x[$0]++'|paste -sd,) $* metadata -f ' %{F#FE8019}󰝚   [{{album}}]  %{F-}{{artist}} - {{title}} - %{F#FE8019}[ {{ duration(mpris:length) }}]%{F-}' 2>/dev/null 
