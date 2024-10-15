@@ -28,7 +28,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -B 10 --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -68,8 +68,8 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # i3 gaps 
-gaps inner 9 
-gaps outer 1 
+gaps inner 17 
+gaps outer 2 
 
 
 # change focus
@@ -237,6 +237,7 @@ exec_always --no-startup-id picom --experimental-backends -CGb
 
 # polkit agent  (used for controlling system-wide privileges)
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+
 
 # assign programs to diff workspace
 # make addition

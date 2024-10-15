@@ -36,15 +36,20 @@ require("lazy").setup({
 })
 
 -- vim settings
+vim.cmd([[autocmd FileType * set formatoptions-=ro]])
 vim.opt.cmdheight = 0
 vim.o.background = "dark" -- or "light" for light mode
 vim.cmd([[colorscheme gruvbox]])
-vim.opt.fillchars = {eob = " "}
-
+vim.opt.fillchars = {eob = " "} -- remove ~ for empty lines
 vim.o.tabstop = 4 -- A TAB character looks like 4 spaces
 vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
 vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
 vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
+
+vim.cmd([[set number]])
+
+
+
 
 -- keymaps
 require("config.mappings")

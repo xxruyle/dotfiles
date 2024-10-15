@@ -16,3 +16,10 @@ vim.keymap.set("n", "<leader>qq", ":wqa<CR>", { desc = "Quit and save all open w
 vim.keymap.set("n", "<S-h>", ":BufferLineCyclePrev<CR>", { desc = "Move to next buffer" })
 vim.keymap.set("n", "<S-l>", ":BufferLineCycleNext<CR>", { desc = "Move to prev buffer" })
 
+
+-- line number 
+vim.keymap.set("n", "<leader>sn", function() vim.cmd("set number!") end, { desc = "Vim: set number (toggle line numbers showing)" })
+
+-- line wrap 
+vim.keymap.set("n", "<leader>uw", function() vim.cmd("set wrap") end, { desc = "Vim: set wrap (toggle line wrap)" })
+

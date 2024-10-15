@@ -115,7 +115,7 @@ fi
 export TERMINAL=kitty
 
 #prompt 
-export PS1="\n\w\n\[\e[1;32m\]❯ \[\e[0m\]"
+export PS1="\n\e[0;33m\w\n\[\e[1;32m\]❯ \[\e[0m\]"
 
 
 
@@ -124,10 +124,13 @@ xset r rate 275 30
 
 #alias
 # alias ls="ls -lah"
-alias neofetch="neofetch --ascii_distro Debian_small"
+alias nvimbashrc="nvim ~/dotfiles/.bashrc"
+alias cdnvim="cd ~/dotfiles/.config/nvim"
+# alias neofetch="neofetch --ascii_distro Debian_small"
 alias cdd="cd ~/dev" 
 alias cdconf="cd ~/dotfiles/.config"
 alias confnotes="nvim ~/dev/notes/config-notes.md"
+alias vtop="vtop --theme gruvbox"
 
 # reload kitty 
 kitty-reload() {
