@@ -117,8 +117,6 @@ export TERMINAL=kitty
 #prompt 
 export PS1="\n\e[0;33m\w\n\[\e[1;32m\]❯ \[\e[0m\]"
 
-
-
 # keyboard repeat and delay rates 
 xset r rate 275 30
 
