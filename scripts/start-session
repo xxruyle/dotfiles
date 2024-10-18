@@ -1,0 +1,3 @@
+autorandr lawrence 
+
+ /usr/bin/nitrogen --set-zoom-fill --head=0 --random ~/Pictures/wallpapers/ --save &&  /usr/bin/nitrogen --set-zoom-fill --head=1 --random ~/Pictures/wallpapers/ --save &&  /usr/bin/nitrogen --set-zoom-fill --head=2 --random ~/Pictures/wallpapers --save

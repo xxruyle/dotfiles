@@ -58,6 +58,9 @@ require("config.mappings")
 require('mini.statusline').setup()
 require('mini.completion').setup() 
 
+-- neoscroll config 
+require('config.neoscroll-config'); 
+
 -- mini keymapping
 local imap_expr = function(lhs, rhs)
     vim.keymap.set('i', lhs, rhs, { expr = true })

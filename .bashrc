@@ -129,6 +129,7 @@ alias cdd="cd ~/dev"
 alias cdconf="cd ~/dotfiles/.config"
 alias confnotes="nvim ~/dev/notes/config-notes.md"
 alias vtop="vtop --theme gruvbox"
+alias kuplan="nvim ~/OneDrive/University\ of\ Kansas/2024\ Fall/fallplanner.md"
 
 # reload kitty 
 kitty-reload() {
