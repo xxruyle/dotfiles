@@ -23,3 +23,12 @@ vim.keymap.set("n", "<leader>sn", function() vim.cmd("set number!") end, { desc 
 -- line wrap 
 vim.keymap.set("n", "<leader>uw", function() vim.cmd("set wrap") end, { desc = "Vim: set wrap (toggle line wrap)" })
 
+
+-- clipboard
+vim.keymap.set("n", "<leader>y", "+y", { desc = "Yank to system clipboard" })
+vim.keymap.set("n", "<leader>y", "+y", { desc = "Yank to system clipboard" })
+vim.keymap.set("n", "<leader>yy","+yy", { desc = "Yank to system clipboard" })
+
+
+
+
