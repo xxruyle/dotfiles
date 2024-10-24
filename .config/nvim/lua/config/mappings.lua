@@ -29,6 +29,13 @@ vim.keymap.set("n", "<leader>y", "+y", { desc = "Yank to system clipboard" })
 vim.keymap.set("n", "<leader>y", "+y", { desc = "Yank to system clipboard" })
 vim.keymap.set("n", "<leader>yy","+yy", { desc = "Yank to system clipboard" })
 
+-- go back to last file 
+-- vim.keymap.set("n", "<C-/>","<C-^>", { desc = "Go back to last file" })
+
+-- center after ctrl u and ctrl d 
+-- vim.keymap.set("n", "<C-u>","<C-u>zz", {desc="Move cursor up"})
+-- vim.keymap.set("n", "<C-d>","<C-d>zz", {desc="Move cursor up"})
+
 
 
 

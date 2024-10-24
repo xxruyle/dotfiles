@@ -280,4 +280,7 @@ assign [class="discord"] $ws3
 assign [class="brave-browser"] $ws2
 
 
+# go back and forth between last workspace visited 
+bindsym $mod+Tab workspace back_and_forth
+
 
