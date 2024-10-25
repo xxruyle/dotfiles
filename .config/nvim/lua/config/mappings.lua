@@ -29,6 +29,13 @@ vim.keymap.set("n", "<leader>y", "+y", { desc = "Yank to system clipboard" })
 vim.keymap.set("n", "<leader>y", "+y", { desc = "Yank to system clipboard" })
 vim.keymap.set("n", "<leader>yy","+yy", { desc = "Yank to system clipboard" })
 
+-- go back to last file 
+-- vim.keymap.set("n", "<C-/>","<C-^>", { desc = "Go back to last file" })
 
+-- center after ctrl u and ctrl d 
+-- vim.keymap.set("n", "<C-u>","<C-u>zz", {desc="Move cursor up"})
+-- vim.keymap.set("n", "<C-d>","<C-d>zz", {desc="Move cursor up"})
 
-
+-- lsp-config
+vim.keymap.set("n", "<leader>lvt", function() vim.diagnostic.config({virtual_text=false}) end, { desc = "Toggles lsp inlay hints virtual text" })
+local diagnostics_active = true vim.keymap.set('n', '<leader>lt', function() diagnostics_active = not diagnostics_active if diagnostics_active then vim.diagnostic.enable(false) else vim.diagnostic.enable(true) end end, {desc="Toggle diagnostics"})

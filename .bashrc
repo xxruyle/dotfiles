@@ -138,4 +138,3 @@ kitty-reload() {
 
 # yt-dlp
 alias ytdlps="yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"-o '%(title)s-%(id)s.%(ext)s'" # downloads the best available quality and audio for on single video
-

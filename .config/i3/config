@@ -69,8 +69,8 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # i3 gaps 
-gaps inner 17 
-gaps outer 2 
+gaps inner 0 
+gaps outer 0 
 
 
 # change focus
@@ -279,5 +279,9 @@ mouse_warping none
 assign [class="discord"] $ws3
 assign [class="brave-browser"] $ws2
 
+bindsym $mod+Tab workspace back_and_forth
 
+# brightness changing
+bindsym $mod+plus exec --no-startup-id brightnessctl set +5%
+bindsym $mod+minus exec --no-startup-id brightnessctl set 5%-
 
