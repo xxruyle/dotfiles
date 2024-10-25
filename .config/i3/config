@@ -263,6 +263,9 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 # Picom (compositor transparency stuff)
 exec_always --no-startup-id picom --experimental-backends -CGb 
 
+# redshift (f.lux basically) 
+exec_always --no-startup-id redshift -x && redshift 
+
 # polkit agent  (used for controlling system-wide privileges)
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
