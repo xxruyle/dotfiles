@@ -227,21 +227,22 @@ set $aqua #689d68
 set $gray #a89984
 set $darkgray #1d2021
 
+# Set border pixel width without title bars
+for_window [class=^.*] border pixel 1
+
 # Window Style
 # class                 border  bground text    indicator child_border
-client.focused          #fe8019 #fe8019 #ebdbb2 #83a598   #fe8019
+client.focused          #b16286 #fe8019 #ebdbb2 $yellow   $purple
 client.focused_inactive #282828 #282828 #ebdbb2 #928374   #928374
 client.unfocused        #282828 #504945 #ebdbb2 #928374   #928374
 client.urgent           #282828 #282828 #fb4934 #282828   #282828
 client.placeholder      #282828 #282828 #ebdbb2 #282828   #282828
 client.background       #282828
 
-# Set border pixel width without title bars
-for_window [class=^.*] border pixel 2
 
 # calendar 
-for_window [class="Yad" title="yad-calendar"] floating enable
-assign [class="Yad"] $ws1
+# for_window [class="Yad" title="yad-calendar"] floating enable
+# assign [class="Yad"] $ws1
 
 # # Start i3bar to display a workspace bar (plus the system information i3status
 # # finds out, if available)
@@ -264,7 +265,6 @@ assign [class="Yad"] $ws1
 ## restore i3 session when starting
 # exec ~/.config/i3-restore/i3-restore
 
-
 # Nitrogen Wallpaper 
 exec_always nitrogen --restore
 
@@ -283,10 +283,11 @@ bindsym $mod+ctrl+s exec i3lock -B 10 && systemctl suspend
 # auto-cpufreq (power saving) 
 exec --no-startup-id sudo auto-cpufreq --live 
 
+# power management configuration
+exec --no-startup-id /usr/lib/x86_64-linux-gnu/libexec/org_kde_powerdevil
 
 # disable mouse movement on focus of different window 
 mouse_warping none
-
 
 # assign programs to diff workspace
 # make addition
@@ -296,6 +297,6 @@ assign [class="brave-browser"] $ws2
 bindsym $mod+Tab workspace back_and_forth
 
 # brightness changing
-bindsym $mod+plus exec --no-startup-id brightnessctl set +5%
-bindsym $mod+minus exec --no-startup-id brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
