@@ -74,7 +74,7 @@ require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = {
         'cssls',
-        'emmet_ls',
+        'emmet_language_server',
         'html',
         'lua_ls',
         'pyright',
@@ -87,8 +87,17 @@ require'lspconfig'.clangd.setup{}
 require'lspconfig'.lua_ls.setup{}
 require'lspconfig'.html.setup{}
 
-require'lspconfig'.emmet_ls.setup{}
+require'lspconfig'.emmet_language_server.setup{}
 require'lspconfig'.cssls.setup{}
+
+-- go pls
+local golang_setup = {
+  on_attach = function(client, bufnr)
+    require "lsp_signature".on_attach(signature_setup, bufnr)  -- Note: add in lsp client on-attach
+  end,
+}
+require'lspconfig'.gopls.setup(golang_setup)
+
 
 local cmp = require('cmp')
 cmp.setup({
