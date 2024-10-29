@@ -130,6 +130,7 @@ alias cdconf="cd ~/dotfiles/.config"
 alias confnotes="nvim ~/dev/notes/config-notes.md"
 alias vtop="vtop --theme gruvbox"
 alias kuplan="nvim ~/OneDrive/University\ of\ Kansas/2024\ Fall/fallplanner.md"
+alias calendar="calcurse"
 
 # reload kitty 
 kitty-reload() {
@@ -140,3 +141,7 @@ kitty-reload() {
 alias ytdlps="yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"-o '%(title)s-%(id)s.%(ext)s'" # downloads the best available quality and audio for on single video
 
 bind 'set completion-ignore-case on'
+
+# Path stuff
+PATH=${PATH}:/usr/local/go/bin
+export PATH

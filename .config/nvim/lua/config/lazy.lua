@@ -69,7 +69,7 @@ require('mini.statusline').setup()
 -- neoscroll config 
 require('config.neoscroll-config'); 
 
--- lsp and mason
+-- lsp and mason -- 
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = {
@@ -89,6 +89,14 @@ require'lspconfig'.html.setup{}
 
 require'lspconfig'.emmet_ls.setup{}
 require'lspconfig'.cssls.setup{}
+
+-- gopls
+-- local golang_setup = {
+--   on_attach = function(client, bufnr)
+--     require "lsp_signature".on_attach(signature_setup, bufnr)  -- Note: add in lsp client on-attach
+--   end,
+-- }
+require'lspconfig'.gopls.setup{}
 
 local cmp = require('cmp')
 cmp.setup({
@@ -128,6 +136,9 @@ cmp.setup({
 )
 
 vim.diagnostic.enable(false, …)
+
+-- leap.nvim
+require('leap').create_default_mappings()
 
 -- mini keymapping
 local imap_expr = function(lhs, rhs)
