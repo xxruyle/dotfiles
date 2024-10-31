@@ -284,6 +284,8 @@ exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agen
 #suspend
 bindsym $mod+ctrl+s exec i3lock -B 10 && systemctl suspend
 
+# power management configuration
+exec --no-startup-id /usr/lib/x86_64-linux-gnu/libexec/org_kde_powerdevil
 
 # disable mouse movement on focus of different window 
 mouse_warping none

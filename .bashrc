@@ -143,5 +143,6 @@ alias ytdlps="yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/bes
 bind 'set completion-ignore-case on'
 
 # Path stuff
-PATH=${PATH}:/usr/local/go/bin
+PATH=${PATH}:/usr/local/go/bin:${HOME}/.cargo/bin
 export PATH
+. "$HOME/.cargo/env"
