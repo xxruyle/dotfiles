@@ -125,7 +125,7 @@ cmp.setup({
 		["<S-Tab>"] = cmp.mapping.select_prev_item(),
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.abort(),
-		["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 	}),
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
@@ -158,19 +158,19 @@ require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		-- Conform will run multiple formatters sequentially
-		python = { "isort", "black" },
+		python = { "isort" },
 		-- You can customize some of the format options for the filetype (:help conform.format)
-		rust = { "ast-grep", "rustfmt", lsp_format = "fallback" },
+		rust = { "rustfmt", lsp_format = "fallback" },
 		-- Conform will run the first available formatter
-		javascript = { "prettier", "prettierd", stop_after_first = true },
-		cpp = { "ast-grep", "clang-format" },
-		c = { "clang-format", "ast-grep" },
+		javascript = { "prettier", stop_after_first = true },
+		cpp = { "clang-format" },
+		c = { "clang-format" },
 		html = { "prettier" },
 		htmldjango = { "prettier" },
+		htmlangular = { "prettier" },
 	},
-	format_on_save = {
+	format_after_save = {
 		-- timeout_ms = 500,
-		async = true,
 		lsp_fallback = true,
 	},
 })

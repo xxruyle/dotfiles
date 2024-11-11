@@ -131,6 +131,7 @@ alias confnotes="nvim ~/dev/notes/config-notes.md"
 alias vtop="vtop --theme gruvbox"
 alias kuplan="nvim ~/OneDrive/University\ of\ Kansas/2024\ Fall/fallplanner.md"
 alias calendar="calcurse"
+alias listdrives="sudo lsblk -o model,name,size,fstype,label,mountpoint"
 
 # reload kitty 
 kitty-reload() {
