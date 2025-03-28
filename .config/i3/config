@@ -293,6 +293,8 @@ mouse_warping none
 # make addition
 assign [class="discord"] $ws3
 assign [class="brave-browser"] $ws2
+# assign [class="TestOpenGL"] $ws3
+
 
 bindsym $mod+Tab workspace back_and_forth
 
