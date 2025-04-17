@@ -31,7 +31,7 @@ require("lazy").setup({
 	-- colorscheme that will be used when installing plugins.
 	install = { colorscheme = { "gruvbox" } },
 	-- automatically check for plugin updates
-	checker = { enabled = false },
+	checker = { enabled = true },
 })
 
 -- vim settings
@@ -55,44 +55,52 @@ vim.cmd([[set signcolumn=no]])
 require("config.mappings")
 
 -- mini
-require("mini.statusline").setup({
-	-- Use this for function signature only, not completion
-	delay = { completion = 10000000, info = 10000000, signature = 50 },
-	-- Add border to signature window
-	window = {
-		signature = { height = 25, width = 80, border = "single" },
-	},
-})
+require("mini.statusline").setup()
 -- require('mini.completion').setup()
 
 -- neoscroll config
 require("config.neoscroll-config")
 
--- lsp and mason
+-- lsp and mason --
 require("mason").setup()
 require("mason-lspconfig").setup({
 	ensure_installed = {
 		"cssls",
-		"emmet_language_server",
+		"emmet_ls",
 		"html",
 		"lua_ls",
 		"pyright",
 		"clangd",
-		"jdtls",
+		"rust_analyzer",
+		"gopls",
 	},
 })
 
+local util = require("lspconfig/util")
 require("lspconfig").pyright.setup({})
 require("lspconfig").clangd.setup({})
 require("lspconfig").lua_ls.setup({})
 require("lspconfig").html.setup({})
 
-require("lspconfig").emmet_language_server.setup({})
+require("lspconfig").emmet_ls.setup({})
 require("lspconfig").cssls.setup({})
+require("lspconfig").rust_analyzer.setup({
+	filetypes = { "rust" },
+	root_dir = util.root_pattern("Cargo.toml"),
+	settings = {
+		["rust_analyzer"] = {
+			cargo = {
+				allFeatures = true,
+			},
+			diagnostics = {
+				enable = true,
+			},
+		},
+	},
+})
 
+-- gopls
 require("lspconfig").gopls.setup({})
-require("lspconfig").glslls.setup({})
-require("lspconfig").jdtls.setup({})
 
 local cmp = require("cmp")
 cmp.setup({
@@ -121,7 +129,6 @@ cmp.setup({
 	}),
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
-		-- { name = "nvim_lsp_signature_help" },
 		-- { name = 'vsnip'},
 		{ name = "luasnip" }, -- For luasnip users.
 		-- { name = 'ultisnips' }, -- For ultisnips users.
@@ -131,27 +138,39 @@ cmp.setup({
 	}),
 })
 
+-- turn off diagnostics by default
 vim.diagnostic.enable(false)
 
+-- leap.nvim
+require("leap").create_default_mappings()
+
+-- telescope
+require("telescope").setup({
+	pickers = {
+		find_files = {
+			hidden = true,
+		},
+	},
+})
+
+-- conform.nvim setup
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		-- Conform will run multiple formatters sequentially
 		python = { "isort", "black" },
 		-- You can customize some of the format options for the filetype (:help conform.format)
-		rust = { "rustfmt", lsp_format = "fallback" },
+		rust = { "ast-grep", "rustfmt", lsp_format = "fallback" },
 		-- Conform will run the first available formatter
-		javascript = { "prettier", stop_after_first = true },
-		java = { "jdtls" },
-		cpp = { "clang-format" },
-		c = { "clang-format" },
-		glsl = { "clang-format" },
+		javascript = { "prettier", "prettierd", stop_after_first = true },
+		cpp = { "ast-grep", "clang-format" },
+		c = { "clang-format", "ast-grep" },
 		html = { "prettier" },
 		htmldjango = { "prettier" },
-		htmlangular = { "prettier" },
 	},
-	format_after_save = {
+	format_on_save = {
 		-- timeout_ms = 500,
+		async = true,
 		lsp_fallback = true,
 	},
 })
@@ -162,12 +181,3 @@ local imap_expr = function(lhs, rhs)
 end
 imap_expr("<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]])
 imap_expr("<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]])
-
--- type writer
-
-require("typewriter").setup({
-	enable_horizontal_scroll = false,
-})
-
--- leap
-require("leap").create_default_mappings()

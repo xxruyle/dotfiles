@@ -130,6 +130,7 @@ alias cdconf="cd ~/dotfiles/.config"
 alias confnotes="nvim ~/dev/notes/config-notes.md"
 alias vtop="vtop --theme gruvbox"
 alias kuplan="nvim ~/OneDrive/University\ of\ Kansas/2024\ Fall/fallplanner.md"
+alias calendar="calcurse" 
 
 # reload kitty 
 kitty-reload() {
@@ -144,3 +145,27 @@ PATH=${PATH}:/usr/local/go/bin
 export PATH 
 
 
+
+# Created by `pipx` on 2025-01-27 17:11:57
+export PATH="$PATH:/home/thinkpad/.local/bin"
+
+# mdfpdf command 
+function kumdpdf() {
+    mdpdf -o $1 --header "Xavier Ruyle, , $3" --footer "{date},{heading},{page}" $2
+}
+
+# JDK for Ghidra 
+export PATH=/home/thinkpad/dev/builds/jdk-21.0.6+7/bin:$PATH
+
+# autocompletion
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'
+
+
+
+
+
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
