@@ -81,3 +81,7 @@ end, { desc = "Go to definition" })
 vim.keymap.set("n", "gD", function()
 	vim.lsp.buf.declaration()
 end, { desc = "Go to declaration" })
+
+-- formatting
+vim.keymap.set("n", "<leader>nd", ":FormatDisable<CR>", { desc = "Disable Format" })
+vim.keymap.set("n", "<leader>ne", ":FormatEnable<CR>", { desc = "Enable Format" })
