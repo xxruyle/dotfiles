@@ -298,7 +298,16 @@ assign [class="brave-browser"] $ws2
 
 bindsym $mod+Tab workspace back_and_forth
 
+# switch to laptop screen only 
+bindsym $mod+Ctrl+Left exec xrandr --output eDP-1 --auto && xrandr --output DP-2 --off
+
+# switch to single external monitor only 
+bindsym $mod+Ctrl+Right exec xrandr --output DP-2 --auto && xrandr --output eDP-1 --off
+
 # brightness changing
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
+
+# removes title bar on top 
+default_border pixel 1
