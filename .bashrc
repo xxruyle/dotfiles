@@ -118,7 +118,7 @@ export TERMINAL=kitty
 export PS1="\n\e[0;33m\w\n\[\e[1;32m\]❯ \[\e[0m\]"
 
 # keyboard repeat and delay rates 
-xset r rate 275 30
+xset r rate 250 30
 
 #alias
 # alias ls="ls -lah"

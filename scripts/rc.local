@@ -1,0 +1,12 @@
+# enables wakeup using any usb device 
+# find devices using grep . /sys/bus/usb/devices/*/power/wakeup
+echo enabled > /sys/bus/usb/devices/1-1/power/wakeup
+echo enabled > /sys/bus/usb/devices/2-3.3/power/wakeup
+echo enabled > /sys/bus/usb/devices/2-3.4/power/wakeup
+echo enabled > /sys/bus/usb/devices/2-3/power/wakeup
+echo enabled > /sys/bus/usb/devices/2-6/power/wakeup
+echo enabled > /sys/bus/usb/devices/2-7/power/wakeup
+echo enabled > /sys/bus/usb/devices/3-3/power/wakeup
+echo enabled > /sys/bus/usb/devices/usb1/power/wakeup
+echo enabled > /sys/bus/usb/devices/usb2/power/wakeup
+echo enabled > /sys/bus/usb/devices/usb3/power/wakeup
