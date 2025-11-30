@@ -1,3 +1,3 @@
 return {
-{ 'echasnovski/mini.completion', version = '*', enabled=false },
+	{ "echasnovski/mini.completion", version = "*", enabled = true },
 }

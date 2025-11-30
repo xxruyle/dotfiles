@@ -26,6 +26,7 @@ require("lazy").setup({
 	spec = {
 		-- import your plugins
 		{ import = "plugins" },
+		{ import = "plugins.lsp" },
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
@@ -50,147 +51,14 @@ vim.opt.cursorline = true -- buffer line for cursor
 -- removes this annoying line next to numbers
 vim.cmd([[set foldcolumn=0]])
 vim.cmd([[set signcolumn=no]])
-
--- keymaps
-require("config.mappings")
-
--- mini
-require("mini.statusline").setup({
-	-- Use this for function signature only, not completion
-	delay = { completion = 10000000, info = 10000000, signature = 50 },
-	-- Add border to signature window
-	window = {
-		signature = { height = 25, width = 80, border = "single" },
-	},
-})
--- require('mini.completion').setup()
-
--- neoscroll config
-require("config.neoscroll-config")
-
--- lsp and mason
-require("mason").setup()
-require("mason-lspconfig").setup({
-	ensure_installed = {
-		"cssls",
-		"emmet_language_server",
-		"html",
-		"lua_ls",
-		"pyright",
-		"clangd",
-		"jdtls",
-		"grammarly",
-	},
-})
-
-require("lspconfig").pyright.setup({})
-require("lspconfig").clangd.setup({})
-require("lspconfig").lua_ls.setup({})
-require("lspconfig").html.setup({})
-
-require("lspconfig").emmet_language_server.setup({})
-require("lspconfig").cssls.setup({})
-
-require("lspconfig").gopls.setup({})
-require("lspconfig").glslls.setup({})
-require("lspconfig").jdtls.setup({})
-require("lspconfig").grammarly.setup({})
-
-local cmp = require("cmp")
-cmp.setup({
-	snippet = {
-		-- REQUIRED - you must specify a snippet engine
-		expand = function(args)
-			-- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-			require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
-			-- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-			-- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-			-- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
-		end,
-	},
-	window = {
-		-- completion = cmp.config.window.bordered(),
-		-- documentation = cmp.config.window.bordered(),
-	},
-	mapping = cmp.mapping.preset.insert({
-		["<S-b>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<Tab>"] = cmp.mapping.select_next_item(),
-		["<S-Tab>"] = cmp.mapping.select_prev_item(),
-		["<C-Space>"] = cmp.mapping.complete(),
-		["<C-e>"] = cmp.mapping.abort(),
-		["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-	}),
-	sources = cmp.config.sources({
-		{ name = "nvim_lsp" },
-		-- { name = "nvim_lsp_signature_help" },
-		-- { name = 'vsnip'},
-		{ name = "luasnip" }, -- For luasnip users.
-		-- { name = 'ultisnips' }, -- For ultisnips users.
-		-- { name = 'snippy' }, -- For snippy users.
-	}, {
-		{ name = "buffer" },
-	}),
-})
+-- vim.cmd([[set wildcharm=<Tab>]])
+vim.cmd([[set wildmode=list:longest,full]])
 
 vim.diagnostic.enable(false)
 
-require("conform").setup({
-	formatters_by_ft = {
-		lua = { "stylua" },
-		-- Conform will run multiple formatters sequentially
-		python = { "isort", "black" },
-		-- You can customize some of the format options for the filetype (:help conform.format)
-		rust = { "rustfmt", lsp_format = "fallback" },
-		-- Conform will run the first available formatter
-		javascript = { "prettier", stop_after_first = true },
-		java = { "jdtls" },
-		cpp = { "clang-format" },
-		c = { "clang-format" },
-		glsl = { "clang-format" },
-		html = { "prettier" },
-		htmldjango = { "prettier" },
-		htmlangular = { "prettier" },
-	},
-	format_on_save = function(bufnr)
-		-- Disable with a global or buffer-local variable
-		if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-			return
-		end
-		return { timeout_ms = 500, lsp_format = "fallback" }
-	end,
-})
+-- vim behavior settings
+vim.opt.errorbells = false -- no error bells
+vim.opt.path:append("**") -- include subdirectories in search
 
-vim.api.nvim_create_user_command("FormatDisable", function(args)
-	if args.bang then
-		-- FormatDisable! will disable formatting just for this buffer
-		vim.b.disable_autoformat = true
-	else
-		vim.g.disable_autoformat = true
-	end
-end, {
-	desc = "Disable autoformat-on-save",
-	bang = true,
-})
-vim.api.nvim_create_user_command("FormatEnable", function()
-	vim.b.disable_autoformat = false
-	vim.g.disable_autoformat = false
-end, {
-	desc = "Re-enable autoformat-on-save",
-})
-
--- mini keymapping
-local imap_expr = function(lhs, rhs)
-	vim.keymap.set("i", lhs, rhs, { expr = true })
-end
-imap_expr("<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]])
-imap_expr("<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]])
-
--- type writer
-
-require("typewriter").setup({
-	enable_horizontal_scroll = false,
-})
-
--- leap
-require("leap").create_default_mappings()
+-- keymaps
+require("config.mappings")

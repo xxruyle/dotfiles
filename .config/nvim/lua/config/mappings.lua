@@ -85,3 +85,7 @@ end, { desc = "Go to declaration" })
 -- formatting
 vim.keymap.set("n", "<leader>nd", ":FormatDisable<CR>", { desc = "Disable Format" })
 vim.keymap.set("n", "<leader>ne", ":FormatEnable<CR>", { desc = "Enable Format" })
+
+
+-- no telescope "fuzzy finder"
+-- vim.keymap.set("n", "<leader>ff", ":find ", { desc = "Find file" })
