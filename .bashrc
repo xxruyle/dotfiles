@@ -88,9 +88,9 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -112,27 +112,30 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
+
 export TERMINAL=kitty
 
-#prompt 
+#prompt
 export PS1="\n\e[0;33m\w\n\[\e[1;32m\]❯ \[\e[0m\]"
 
-# keyboard repeat and delay rates 
-xset r rate 250 30
+# keyboard repeat and delay rates
+xset r rate 275 30
 
 #alias
 # alias ls="ls -lah"
 alias nvimbashrc="nvim ~/dotfiles/.bashrc"
 alias cdnvim="cd ~/dotfiles/.config/nvim"
 # alias neofetch="neofetch --ascii_distro Debian_small"
-alias cdd="cd ~/dev" 
+alias cdd="cd ~/dev"
 alias cdconf="cd ~/dotfiles/.config"
 alias confnotes="nvim ~/dev/notes/config-notes.md"
 alias vtop="vtop --theme gruvbox"
 alias kuplan="nvim ~/OneDrive/University\ of\ Kansas/2024\ Fall/fallplanner.md"
-alias calendar="calcurse" 
+alias calendar="calcurse"
+alias listdrives="sudo lsblk -o model,name,size,fstype,label,mountpoint"
 
-# reload kitty 
+# reload kitty
 kitty-reload() {
     kill -SIGUSR1 $(pidof kitty)
 }
@@ -140,32 +143,4 @@ kitty-reload() {
 # yt-dlp
 alias ytdlps="yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"-o '%(title)s-%(id)s.%(ext)s'" # downloads the best available quality and audio for on single video
 
-# Path stuff
-PATH=${PATH}:/usr/local/go/bin
-export PATH 
-
-
-
-# Created by `pipx` on 2025-01-27 17:11:57
-export PATH="$PATH:/home/thinkpad/.local/bin"
-
-# mdfpdf command 
-function kumdpdf() {
-    mdpdf -o $1 --header "Xavier Ruyle, , $3" --footer "{date},{heading},{page}" $2
-}
-
-# JDK for Ghidra 
-export PATH=/home/thinkpad/dev/builds/jdk-21.0.6+7/bin:$PATH
-
-# autocompletion
-bind 'set show-all-if-ambiguous on'
-bind 'TAB:menu-complete'
-
-
-
-
-
-
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
+bind 'set completion-ignore-case on'
