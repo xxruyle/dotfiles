@@ -89,7 +89,7 @@ fi
 
 # some more ls aliases
 alias ll='ls -l'
-alias la='ls -A'
+alias la='ls -lah'
 alias l='ls -CF'
 
 # Alias definitions.
@@ -126,7 +126,7 @@ xset r rate 275 30
 xinput --set-prop 23 "libinput Accel Speed" -0.37
 
 #alias
-# alias ls="ls -lah"
+# alias ll="ls -lah"
 alias nvimbashrc="nvim ~/dotfiles/.bashrc"
 alias cdnvim="cd ~/dotfiles/.config/nvim"
 # alias neofetch="neofetch --ascii_distro Debian_small"
