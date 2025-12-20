@@ -122,6 +122,9 @@ export PS1="\n\e[0;33m\w\n\[\e[1;32m\]❯ \[\e[0m\]"
 # keyboard repeat and delay rates
 xset r rate 275 30
 
+# set mouse speed 
+xinput --set-prop 23 "libinput Accel Speed" -0.37
+
 #alias
 # alias ls="ls -lah"
 alias nvimbashrc="nvim ~/dotfiles/.bashrc"

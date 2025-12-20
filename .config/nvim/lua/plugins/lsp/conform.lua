@@ -9,14 +9,15 @@ return {
 					cpp = { "clang-format" },
 					c = { "clang-format" },
 					-- Conform will run multiple formatters sequentially
-					-- python = { "isort", "black" },
+					python = { "black" },
 					-- -- You can customize some of the format options for the filetype (:help conform.format)
 					-- rust = { "rustfmt", lsp_format = "fallback" },
 					-- -- Conform will run the first available formatter
 					-- javascript = { "prettier", stop_after_first = true },
+					javascript = { "prettier" },
 					-- java = { "jdtls" },
 					-- glsl = { "clang-format" },
-					-- html = { "prettier" },
+					html = { "prettier" },
 					-- htmldjango = { "prettier" },
 					-- htmlangular = { "prettier" },
 				},

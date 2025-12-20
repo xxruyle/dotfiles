@@ -308,7 +308,10 @@ bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Ctrl+Left exec xrandr --output eDP-1 --auto && xrandr --output DP-2 --off
 
 # switch to single external monitor only 
-bindsym $mod+Ctrl+Right exec xrandr --output DP-2 --auto && xrandr --output eDP-1 --off && source ~/.bashrc 
+bindsym $mod+Ctrl+Right exec xrandr --output HDMI-1 --auto && xrandr --output eDP-1 --off && source ~/.bashrc 
+
+# screenshot 
+bindsym $mod+Shift+Print exec spectacle -r
 
 # brightness changing
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%

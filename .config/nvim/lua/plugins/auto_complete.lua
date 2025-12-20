@@ -30,7 +30,7 @@ return {
 		keymap = {
 			["<S-Tab>"] = { "select_prev", "fallback" },
 			["<Tab>"] = { "select_next", "fallback" },
-			["<Enter>"] = { "accept_and_enter", "fallback" },
+			["<Enter>"] = { "accept", "fallback" },
 		},
 
 		appearance = {
