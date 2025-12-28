@@ -83,9 +83,31 @@ vim.keymap.set("n", "gD", function()
 end, { desc = "Go to declaration" })
 
 -- formatting
-vim.keymap.set("n", "<leader>nd", ":FormatDisable<CR>", { desc = "Disable Format" })
-vim.keymap.set("n", "<leader>ne", ":FormatEnable<CR>", { desc = "Enable Format" })
-
+-- TODO find the command for this
+-- vim.keymap.set("n", "<leader>nd", ":FormatDisable<CR>", { desc = "Disable Format" })
+-- vim.keymap.set("n", "<leader>ne", ":FormatEnable<CR>", { desc = "Enable Format" })
 
 -- no telescope "fuzzy finder"
 -- vim.keymap.set("n", "<leader>ff", ":find ", { desc = "Find file" })
+
+-- vim.api.nvim_create_autocmd("TermOpen", {
+-- 	group = vim.api.nvim_create_augroup("custom-term-open", { clear = true }),
+-- 	callback = function()
+-- 		vim.opt.number = false
+-- 		vim.opt.relativenumber = false
+-- 	end,
+-- })
+
+-- buffer opening stuff
+vim.keymap.set("n", "<C-w>t", function()
+	vim.cmd("below new")
+	vim.cmd.wincmd("j")
+	vim.cmd.term()
+	vim.api.nvim_win_set_height(0, 10)
+end, { desc = "Open terminal emulator in new below buffer" })
+
+vim.keymap.set("n", "<C-w>ss", function()
+	vim.cmd("below new")
+	vim.cmd.wincmd("j")
+	vim.api.nvim_win_set_height(0, 10)
+end, { desc = "Open smaller buffer below and go to it" })

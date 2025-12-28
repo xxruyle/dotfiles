@@ -34,8 +34,17 @@ vim.lsp.config("clangd", {
 vim.lsp.enable("clangd")
 
 vim.lsp.config("emmet-language-server", {
-      filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" },
+	filetypes = {
+		"css",
+		"eruby",
+		"html",
+		"javascript",
+		"javascriptreact",
+		"less",
+		"sass",
+		"scss",
+		"pug",
+		"typescriptreact",
+	},
 })
 vim.lsp.enable("emmet-language-server")
-
-

@@ -119,11 +119,6 @@ export TERMINAL=kitty
 #prompt
 export PS1="\n\e[0;33m\w\n\[\e[1;32m\]❯ \[\e[0m\]"
 
-# keyboard repeat and delay rates
-xset r rate 275 30
-
-# set mouse speed 
-xinput --set-prop 23 "libinput Accel Speed" -0.37
 
 #alias
 # alias ll="ls -lah"
@@ -138,12 +133,34 @@ alias kuplan="nvim ~/OneDrive/University\ of\ Kansas/2024\ Fall/fallplanner.md"
 alias calendar="calcurse"
 alias listdrives="sudo lsblk -o model,name,size,fstype,label,mountpoint"
 
+# esp-idf path export 
+alias get_idf='. $HOME/esp/esp-idf/export.sh'
+
+
 # reload kitty
 kitty-reload() {
     kill -SIGUSR1 $(pidof kitty)
 }
 
+nitrogen-random() {
+    nitrogen --set-zoom-fill --random
+}
+
 # yt-dlp
 alias ytdlps="yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"-o '%(title)s-%(id)s.%(ext)s'" # downloads the best available quality and audio for on single video
 
-bind 'set completion-ignore-case on'
+# menu completion 
+# bind 'set completion-ignore-case on'
+# If there are multiple matches for completion, Tab should cycle through them
+bind 'TAB:menu-complete'
+# And Shift-Tab should cycle backwards
+bind '"\e[Z": menu-complete-backward'
+
+# Display a list of the matching files
+bind "set show-all-if-ambiguous on"
+
+# Perform partial (common) completion on the first Tab press, only start
+# cycling full results on the second Tab press (from bash version 5)
+bind "set menu-complete-display-prefix on"
+
+export PATH="/opt/gcc-arm/bin:$PATH"
