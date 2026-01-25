@@ -1,4 +1,5 @@
 # keyboard repeat and delay rates
+echo "Setting keyboard rates"
 xset r rate 275 30
 
 # set mouse speed 
@@ -8,12 +9,19 @@ MOUSE_ID=$(xinput --list | grep "$MOUSE_NAME" | grep -v Keyboard | sed -n 's/.*i
 if [[ -n "$MOUSE_ID" ]]; then
   echo "Mouse (" $MOUSE_NAME ") found: " $MOUSE_ID  
   xinput --set-prop $MOUSE_ID "libinput Accel Speed" $MOUSE_SPEED
+
+  echo "Mouse ($MOUSE_NAME id:$MOUSE_ID) set to accel speed $MOUSE_SPEED"
+
+  xinput --set-prop $MOUSE_ID 'libinput Accel Profile Enabled' 0, 1
+  echo "Mouse ($MOUSE_NAME id:$MOUSE_ID) disabling mouse acceleration"
 else 
-  echo "Mouse not found"
+    echo "Mouse ($MOUSE_NAME) not found"
 fi
 
 
 # random wallpaper 
+echo "Setting random wallpaper"  
 nitrogen --set-zoom-fill --random
 
+echo "Running bashrc" 
 source ~/.bashrc

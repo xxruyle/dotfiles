@@ -48,3 +48,10 @@ vim.lsp.config("emmet-language-server", {
 	},
 })
 vim.lsp.enable("emmet-language-server")
+
+vim.lsp.config("beautysh", {
+	filetypes = {
+		"sh",
+	},
+})
+vim.lsp.enable("beautysh")

@@ -278,13 +278,15 @@ exec_always --no-startup-id picom --experimental-backends -CGb
 # polkit agent  (used for controlling system-wide privileges)
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
+set $i3lock_blur_script_path "~/dotfiles/scripts/i3lock_blur.sh"
 #suspend
-bindsym $mod+ctrl+shift+s exec i3lock-blur && systemctl suspend
+bindsym $mod+ctrl+shift+s exec $i3lock_blur_script_path && systemctl suspend
+
 # simple lock 
-bindsym $mod+ctrl+shift+l exec i3lock-blur 
+bindsym $mod+ctrl+shift+l exec $i3lock_blur_script_path 
 
 # hibernate 
-bindsym $mod+ctrl+shift+h exec i3lock-blur && systemctl hibernate
+bindsym $mod+ctrl+shift+h exec $i3lock_blur_script_path  && systemctl hibernate
 
 # auto-cpufreq (power saving) 
 exec --no-startup-id sudo auto-cpufreq --live 
